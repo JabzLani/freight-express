@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FreightExpress</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-profile">
+                <img src="../assets/avatar.png" alt="User Avatar">
+                <h3 id="user-name">John Doe</h3>
+                <p id="user-email">john@example.com</p>
+            </div>
+
+            <nav class="dashboard-nav">
+                <ul>
+                    <li class="active"><a href="#overview"><i class="fas fa-home"></i> Overview</a></li>
+                    <li><a href="#shipments"><i class="fas fa-shipping-fast"></i> My Shipments</a></li>
+                    <li><a href="#quotes"><i class="fas fa-calculator"></i> Saved Quotes</a></li>
+                    <li><a href="#orders"><i class="fas fa-receipt"></i> Orders</a></li>
+                    <li><a href="#billing"><i class="fas fa-credit-card"></i> Billing</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <header class="dashboard-header">
+                <h1>Dashboard Overview</h1>
+                <button class="btn-new-shipment" onclick="location.href='../calculator.html'">
+                    <i class="fas fa-plus"></i> New Shipment
+                </button>
+            </header>
+
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #4CAF50;">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="active-shipments">12</h3>
+                        <p>Active Shipments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #2196F3;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="delivered">48</h3>
+                        <p>Delivered</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #FF9800;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="pending">3</h3>
+                        <p>Pending</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #9C27B0;">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-spent">$2,450</h3>
+                        <p>Total Spent</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Shipments -->
+            <section class="recent-shipments">
+                <h2>Recent Shipments</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tracking #</th>
+                                <th>Destination</th>
+                                <th>Status</th>
+                                <th>Estimated Delivery</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shipments-table">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Recent Quotes -->
+            <section class="recent-quotes">
+                <h2>Recent Quotes</h2>
+                <div class="quotes-grid">
+                    <!-- Quotes will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

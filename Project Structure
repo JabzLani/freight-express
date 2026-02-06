@@ -1,0 +1,39 @@
+freight-website/
+│
+├── index.html
+├── css/
+│   ├── style.css
+│   ├── dashboard.css
+│   └── admin.css
+├── js/
+│   ├── main.js
+│   ├── calculator.js
+│   ├── map.js
+│   ├── cart.js
+│   ├── dashboard.js
+│   ├── admin.js
+│   └── stripe.js
+├── pages/
+│   ├── about.html
+│   ├── contact.html
+│   ├── faq.html
+│   ├── privacy.html
+│   ├── calculator.html
+│   ├── cart.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   └── admin/
+│       ├── index.html
+│       ├── users.html
+│       ├── products.html
+│       ├── pricing.html
+│       └── system.html
+└── api/
+    ├── auth.php
+    ├── calculator.php
+    ├── orders.php
+    └── admin/
+        ├── users.php
+        ├── products.php
+        └── pricing.php

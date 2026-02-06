@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment - FreightExpress</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tracking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Freight<span>Express</span></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="calculator.html">Get Quote</a></li>
+                <li><a href="tracking.html" class="active">Track</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="tracking-container">
+        <div class="tracking-header">
+            <h1>Track Your Shipment</h1>
+            <p>Enter tracking number or search by reference</p>
+        </div>
+
+        <!-- Tracking Search -->
+        <div class="tracking-search">
+            <div class="search-box">
+                <input type="text" id="tracking-input" placeholder="Enter tracking number (e.g., FX123456789)">
+                <button onclick="trackShipment()">
+                    <i class="fas fa-search"></i> Track
+                </button>
+            </div>
+            <div class="search-options">
+                <button class="btn-scan-qr" onclick="scanQR()">
+                    <i class="fas fa-qrcode"></i> Scan QR Code
+                </button>
+                <button class="btn-recent" onclick="showRecent()">
+                    <i class="fas fa-history"></i> Recent Shipments
+                </button>
+            </div>
+        </div>
+
+        <!-- Tracking Results -->
+        <div class="tracking-results" id="tracking-results">
+            <!-- Results will be loaded here -->
+        </div>
+
+        <!-- Live Tracking Map -->
+        <div class="tracking-map-container">
+            <h2>Live Location</h2>
+            <div class="map-controls">
+                <button onclick="centerMap()"><i class="fas fa-crosshairs"></i> Center</button>
+                <button onclick="toggleSatellite()"><i class="fas fa-satellite"></i> Satellite</button>
+                <button onclick="shareLocation()"><i class="fas fa-share-alt"></i> Share</button>
+            </div>
+            <div id="tracking-map"></div>
+        </div>
+
+        <!-- Timeline and Details -->
+        <div class="tracking-details">
+            <div class="details-card">
+                <h2>Shipment Details</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <label>Tracking Number</label>
+                        <strong id="detail-tracking">--</strong>
+                    </div>
+                    <div class="detail-item">
+                        <label>Status</label>
+                        <span class="status-badge" id="detail-status">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Estimated Delivery</label>
+                        <strong id="detail-eta">--</strong>
+                    </div>
+                    <div class="detail-item">
+                        <label>Service Type</label>
+                        <span id="detail-service">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Weight</label>
+                        <span id="detail-weight">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Dimensions</label>
+                        <span id="detail-dimensions">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-card">
+                <h2>Shipment Timeline</h2>
+                <div class="timeline" id="shipment-timeline">
+                    <!-- Timeline will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Driver Information -->
+        <div class="driver-info" id="driver-info">
+            <h2>Driver Information</h2>
+            <div class="driver-card">
+                <div class="driver-avatar">
+                    <img src="../assets/driver-avatar.png" alt="Driver">
+                </div>
+                <div class="driver-details">
+                    <h3 id="driver-name">--</h3>
+                    <p><i class="fas fa-phone"></i> <span id="driver-phone">--</span></p>
+                    <p><i class="fas fa-truck"></i> Vehicle: <span id="driver-vehicle">--</span></p>
+                    <p><i class="fas fa-id-badge"></i> ID: <span id="driver-id">--</span></p>
+                </div>
+                <div class="driver-actions">
+                    <button class="btn-call" onclick="callDriver()">
+                        <i class="fas fa-phone"></i> Call Driver
+                    </button>
+                    <button class="btn-message" onclick="messageDriver()">
+                        <i class="fas fa-comment"></i> Message
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications Settings -->
+        <div class="notifications-card">
+            <h2>Notifications</h2>
+            <div class="notification-settings">
+                <div class="setting-item">
+                    <div>
+                        <h4>Email Updates</h4>
+                        <p>Receive status updates via email</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="email-notifications" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div>
+                        <h4>SMS Alerts</h4>
+                        <p>Get text message alerts</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="sms-notifications">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div>
+                        <h4>Push Notifications</h4>
+                        <p>Browser push notifications</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="push-notifications">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="btn-subscribe" onclick="saveNotificationSettings()">
+                Save Preferences
+            </button>
+        </div>
+    </div>
+
+    <!-- QR Scanner Modal -->
+    <div class="modal" id="qr-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Scan QR Code</h2>
+                <button class="modal-close" onclick="closeQRModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="qr-scanner" id="qr-scanner">
+                    <video id="qr-video"></video>
+                    <div class="qr-overlay">
+                        <div class="qr-frame"></div>
+                        <p>Align QR code within frame</p>
+                    </div>
+                </div>
+                <div class="qr-fallback">
+                    <p>Or upload QR code image:</p>
+                    <input type="file" id="qr-upload" accept="image/*">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/tracking.js"></script>
+    <script src="../js/qr-scanner.js"></script>
+</body>
+
+</html>

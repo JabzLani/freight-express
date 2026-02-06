@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - FreightExpress</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Freight<span>Express</span></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="calculator.html">Get Quote</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Create Account</h1>
+                <p>Register to access your dashboard and manage shipments</p>
+            </div>
+
+            <form id="register-form">
+                <div class="form-tabs">
+                    <button type="button" class="tab-btn active" data-tab="personal">Personal</button>
+                    <button type="button" class="tab-btn" data-tab="business">Business</button>
+                </div>
+
+                <!-- Personal Tab -->
+                <div class="tab-content active" id="personal-tab">
+                    <div class="form-group">
+                        <label for="first-name">First Name *</label>
+                        <input type="text" id="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name *</label>
+                        <input type="text" id="last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                        <div class="input-info">We'll send order confirmations to this email</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" required>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">Password strength</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password *</label>
+                            <input type="password" id="confirm-password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- Business Tab -->
+                <div class="tab-content" id="business-tab">
+                    <div class="form-group">
+                        <label for="company-name">Company Name *</label>
+                        <input type="text" id="company-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="company-email">Company Email</label>
+                        <input type="email" id="company-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="company-phone">Company Phone</label>
+                        <input type="tel" id="company-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="company-address">Company Address</label>
+                        <textarea id="company-address" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-tax">Tax ID / VAT Number</label>
+                        <input type="text" id="company-tax">
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry">
+                            <option value="">Select Industry</option>
+                            <option value="retail">Retail</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="wholesale">Wholesale</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        I agree to the <a href="privacy.html">Terms of Service</a> and
+                        <a href="privacy.html">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="newsletter" checked>
+                    <label for="newsletter">
+                        Subscribe to our newsletter for updates and promotions
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-auth">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+
+                <button type="button" class="btn-auth-google">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="auth-benefits">
+            <h2>Benefits of Registering</h2>
+            <ul class="benefits-list">
+                <li><i class="fas fa-bolt"></i> Fast checkout with saved information</li>
+                <li><i class="fas fa-history"></i> Track order history</li>
+                <li><i class="fas fa-chart-line"></i> View shipping analytics</li>
+                <li><i class="fas fa-tags"></i> Access to exclusive discounts</li>
+                <li><i class="fas fa-star"></i> Earn loyalty points</li>
+                <li><i class="fas fa-shield-alt"></i> Secure account management</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FreightExpress</title>
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Admin Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h2>FreightExpress Admin</h2>
+            </div>
+
+            <nav class="admin-nav">
+                <div class="nav-section">
+                    <h3>Main</h3>
+                    <ul>
+                        <li class="active"><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="users.html"><i class="fas fa-users"></i> User Management</a></li>
+                        <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>System Configuration</h3>
+                    <ul>
+                        <li><a href="products.html"><i class="fas fa-box"></i> Parcel Sizes</a></li>
+                        <li><a href="pricing.html"><i class="fas fa-dollar-sign"></i> Price Management</a></li>
+                        <li><a href="zones.html"><i class="fas fa-map"></i> Zone Management</a></li>
+                        <li><a href="delivery-types.html"><i class="fas fa-truck"></i> Delivery Types</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>System</h3>
+                    <ul>
+                        <li><a href="system.html"><i class="fas fa-cog"></i> System Settings</a></li>
+                        <li><a href="logs.html"><i class="fas fa-clipboard-list"></i> Audit Logs</a></li>
+                        <li><a href="../../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <header class="admin-header">
+                <div class="header-left">
+                    <h1>Admin Dashboard</h1>
+                    <p id="admin-welcome">Welcome back, Administrator</p>
+                </div>
+                <div class="header-right">
+                    <div class="admin-search">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="admin-notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Quick Stats -->
+            <div class="admin-stats">
+                <div class="admin-stat-card">
+                    <div class="stat-header">
+                        <h3>Total Users</h3>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-body">
+                        <h2 id="total-users">1,245</h2>
+                        <span class="stat-change positive">+12%</span>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-header">
+                        <h3>Active Orders</h3>
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-body">
+                        <h2 id="active-orders">89</h2>
+                        <span class="stat-change positive">+5%</span>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-header">
+                        <h3>Revenue</h3>
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-body">
+                        <h2 id="total-revenue">$45,670</h2>
+                        <span class="stat-change positive">+18%</span>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-header">
+                        <h3>Pending Quotes</h3>
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="stat-body">
+                        <h2 id="pending-quotes">23</h2>
+                        <span class="stat-change negative">-3%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="admin-activity">
+                <div class="activity-section">
+                    <h2>Recent Orders</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-orders">
+                                <!-- Filled by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h2>System Alerts</h2>
+                    <div class="alerts-container">
+                        <!-- Alerts will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price Management Section -->
+            <section class="price-management">
+                <h2>Price Matrix Management</h2>
+                <div class="price-matrix">
+                    <div class="matrix-controls">
+                        <button class="btn-add-zone">Add Zone</button>
+                        <button class="btn-import-prices">Import Prices</button>
+                        <button class="btn-export-prices">Export Prices</button>
+                    </div>
+                    <div class="matrix-table">
+                        <!-- Price matrix table will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../../js/admin.js"></script>
+</body>
+
+</html>
